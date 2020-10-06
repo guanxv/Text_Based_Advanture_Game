@@ -1,6 +1,7 @@
 import time
 import random
 import keyboard
+from dnd_data import race_desc, race_short
 
 
 class Charactor:
@@ -12,11 +13,19 @@ class Charactor:
     wisdom = 0
     charisma = 0
 
+    race = ""
+    clas = ""
+    level = ""
+    exp = 0
+
     def __init__(
         self, name
     ):  # , strength, dexterity, constitution, intelligence, wisdom, charisma, race, clas, level):
+        
+        # time.sleep(100)
         self.name = self.get_char_name()
         self.get_char_ability_score()
+        self.choose_race()
         # self.strength = strength
         # self.dexterity = dexterity
         # self.constitution = constitution
@@ -51,11 +60,11 @@ class Charactor:
 
         while True:
 
-            if keyboard.is_pressed("space"):
+            if keyboard.press_and_release("space"):
                 self.roll_dice_for_ability()
                 print("Do you want to re-roll the dice ? (Space / N)")
 
-            if keyboard.is_pressed("n"):
+            if keyboard.press_and_release("n"):
                 break
 
             # else:
@@ -84,16 +93,58 @@ class Charactor:
             )
         )
 
+    def choose_race(self):
+        clear_screen()
+        print("Dear Warrior, What is your race:")
+        nl(1)
+
+        index = self.chooser(race_desc)
+        race_select = race_short[index]
+        print("Oh, you are a " + race_select "!")
+        self.race = race_select
+
+    @staticmethod
+    def chooser(list_to_choose):
+        print("Please Choose from following:")
+        nl(1)
+        for item in list_to_choose:
+            print(item)
+            time.sleep(0.2)
+
+        nl(1)
+
+        while True:
+
+            selected = input("Please Choose One: ")
+            selected = ("(" + selected + ")").upper()
+
+            for idx, item in enumerate(list_to_choose):
+                if selected in item:
+                    print("You selected: \n {}".format(list_to_choose[idx]))
+                    nl(1)
+                    confirm =  input("Do you confirm ? (Yes / No)")
+
+                    if "y" in confirm.lower():
+                        return idx
+                    if "n" in confirm.lower():
+                        pass
+
+            
+
+
+
     @staticmethod
     def prt_ability_band():
-        print('''
+        print(
+            """
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 #                                                                                   #
 #  STRENGTH  #  DEXTERITY  #  CONSTITUTION  #  INTELLIGENT  #  WISDOM  #  CHARISMA  #
 #                                                                                   #
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-            ''')
-        
+            """
+        )
+
 
 def clear_screen():
     for i in range(100):

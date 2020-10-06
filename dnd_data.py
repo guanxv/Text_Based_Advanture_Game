@@ -1,0 +1,71 @@
+race_desc = [
+    "(DW)Dwarf              - Bold, hardy, warrior, miner, long memory and grudges",
+    "(MD)Mountain Dwarf     - Strong, hardy, rugged, tall for a dwarf",
+    "(HD)Hill Dwarf         - Keen senses, deep intuition, remarkable resilience",
+    "(EL)Elf                - Magical people of otherworldly grace, in but not of the world",
+    "(WE)Wood Elf           - Keen senses and intuition, fleet feet, and stealth",
+    "(HE)High Elf           - Keen mind and master of basic magic",
+    "(DR)Drow               - Follow the god Lolth down the path of evil and corruption",
+    "(HF)Halfling           - You love peace, food, hearth, and home",
+    "(LH)Lightfoot Halfling - You can easily hide, are inclined to get along with others",
+    "(SH)Stout Halfling     - Hardier than average and may be part dwarven blood",
+    "(HU)Human              - Young, short-lived race, innovators and achievers",
+    "(DB)Dragonborn         - A servant to dragons, a warrior, or a drifter",
+    "(GN)Gnome              - You delight in life, are an inventor, explorer, and explorer",
+    "(FG)Forest Gnome       - Knack for illusion and inherent quickness and stealth",
+    "(HA)Half-Elf           - Curious, inventive, ambitious, love nature, artistic",
+    "(HO)Half-Orc           - Adventurer with savage fury and barbaric customs",
+    "(TF)Tiefling           - Demonic heritage, self-reliant, suspicious, drifter",
+]
+
+race_short = [
+    "Dwarf",
+    "Mountain Dwarf",
+    "Hill Dwarf",
+    "Elf",
+    "Wood Elf",
+    "High Elf",
+    "Drow",
+    "Halfling",
+    "Lightfoot Halfling",
+    "Stout Halfling",
+    "Human",
+    "Dragonborn",
+    "Gnome",
+    "Forest Gnome",
+    "Half-Elf",
+    "Half-Orc",
+    "Tiefling",
+]
+
+class_desc = [
+    "Barbarian - The relentless combatant fueld by fury.",
+    "Bard      - A story witty storyteller or musician.",
+    "Cleric    - A holy man capable of helaing wounds.",
+    "Druid     - A nomad devoted to the powers of Nature",
+    "Fighter   - The skilled combatant and strategist.",
+    "Monk      - A martial artist pulling bodily powers.",
+    "Paladin   - A novice fighter bolstered by divine magic.",
+    "Ranger    - One who blends wilderness knowledge and martial ability",
+    "Rogue     - The theif, assassin, and stealthy character.",
+    "Sorcerer  - A magic user who draws power from within.",
+    "Warlock   - Pacted to a deity for empowering spells.",
+    "Wizard    - Keeper of arcane secrets and manipulator of magic.",
+]
+
+# Class Descriptions - https://redd.it/2e9vzl
+
+class_short = [
+    "Barbarian",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Fighter",
+    "Monk",
+    "Paladin",
+    "Ranger",
+    "Rogue",
+    "Sorcerer",
+    "Warlock",
+    "Wizard",
+]
