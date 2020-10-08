@@ -1,7 +1,7 @@
 import time
 import random
 import keyboard
-from dnd_data import race_desc, race_short
+from dnd_data import race_desc, race_short, Race, races
 
 
 class Charactor:
@@ -13,7 +13,8 @@ class Charactor:
     wisdom = 0
     charisma = 0
 
-    race = ""
+    race = None
+
     clas = ""
     level = ""
     exp = 0
@@ -21,11 +22,18 @@ class Charactor:
     def __init__(
         self, name
     ):  # , strength, dexterity, constitution, intelligence, wisdom, charisma, race, clas, level):
-        
+
         # time.sleep(100)
         self.name = self.get_char_name()
         self.get_char_ability_score()
         self.choose_race()
+
+        # race mod
+
+        # choose class
+
+        # class mod
+
         # self.strength = strength
         # self.dexterity = dexterity
         # self.constitution = constitution
@@ -60,11 +68,11 @@ class Charactor:
 
         while True:
 
-            if keyboard.press_and_release("space"):
+            if keyboard.is_pressed("space"):
                 self.roll_dice_for_ability()
                 print("Do you want to re-roll the dice ? (Space / N)")
 
-            if keyboard.press_and_release("n"):
+            if keyboard.is_pressed("n"):
                 break
 
             # else:
@@ -99,9 +107,14 @@ class Charactor:
         nl(1)
 
         index = self.chooser(race_desc)
-        race_select = race_short[index]
-        print("Oh, you are a " + race_select "!")
-        self.race = race_select
+        self.race = races[index]
+        print("Oh, you are a " + self.race.name + "!")
+        print(self.race.ability_mod)
+
+        #print the key and value for ability mod
+        #modify the ability
+
+        
 
     @staticmethod
     def chooser(list_to_choose):
@@ -122,16 +135,12 @@ class Charactor:
                 if selected in item:
                     print("You selected: \n {}".format(list_to_choose[idx]))
                     nl(1)
-                    confirm =  input("Do you confirm ? (Yes / No)")
+                    confirm = input("Do you confirm ? (Yes / No)")
 
                     if "y" in confirm.lower():
                         return idx
                     if "n" in confirm.lower():
                         pass
-
-            
-
-
 
     @staticmethod
     def prt_ability_band():
@@ -144,6 +153,7 @@ class Charactor:
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
             """
         )
+
 
 
 def clear_screen():
@@ -193,8 +203,5 @@ def sum_roll_dice_remove_lowest(n_dice, dice_rank):
     return sum(dice_list)
 
 
-print(sum_roll_dice_remove_lowest(4, 6))
 
-
-# time.sleep(10)
 b = Charactor("aa")
