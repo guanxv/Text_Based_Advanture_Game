@@ -109,7 +109,20 @@ class Charactor:
         index = self.chooser(race_desc)
         self.race = races[index]
         print("Oh, you are a " + self.race.name + "!")
-        print(self.race.ability_mod)
+        print('You have got following Ability adjustment:')
+        
+        
+        for ability , value in self.race.ability_mod.items():
+            if value == 0:
+                pass
+            else:
+                print(ability + ":   +" + str(value))
+        
+        self.ability_race_mod()
+
+        self.print_current_ability()
+                
+        
 
         #print the key and value for ability mod
         #modify the ability
@@ -153,6 +166,26 @@ class Charactor:
 #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
             """
         )
+
+    def ability_race_mod(self):
+        self.strength += self.race.ability_mod['Strength']
+        self.dexterity += self.race.ability_mod['Dexterity']
+        self.constitution += self.race.ability_mod['Constitution']
+        self.intelligence += self.race.ability_mod['Intelligence']
+        self.wisdom += self.race.ability_mod['Wisdom']
+        self.charisma += self.race.ability_mod['Charisma']
+
+    def print_current_ability(self):
+    
+        
+        print('Your current ability are:')
+        nl(2)
+        print('Strength:' + str(self.strength) )
+        print('Dexterity:' + str(self.dexterity) )
+        print('Constitution:' + str(self.constitution) )
+        print('Intelligence:' + str(self.intelligence) )
+        print('Wisdom:' + str(self.wisdom) )
+        print('Charisma:' + str(self.charisma) )
 
 
 
